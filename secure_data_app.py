@@ -204,7 +204,7 @@ if st.session_state.current_page == "🏠 Home":
     total_records = len(st.session_state.stored_data.get(st.session_state.current_user, {}))
     st.info(f"📦 Total Encrypted Records of {st.session_state.current_user} : {total_records}")
     
-    
+# ---------------------- History Page --------------- #
 
 elif st.session_state.current_page == "🗃️ History":
     st.subheader("🗂️ Encrypted Data History")
@@ -214,6 +214,8 @@ elif st.session_state.current_page == "🗃️ History":
             st.markdown(f"**{idx}. {data['label']}**")
     else:
         st.write("No encrypted records found.")
+
+# ---------------------- Store Data Page--------------- #
 
 elif st.session_state.current_page == "🗂️ Store Data":
     st.subheader("📂 Store Data Securely")
@@ -243,6 +245,9 @@ elif st.session_state.current_page == "🗂️ Store Data":
         else:
             st.error("⚠️ All fields are required!")
 
+
+# ---------------------- Retrieve Page  ---------------------- #
+
 elif st.session_state.current_page == "🔍 Retrieve Data":
     st.subheader("🔍 Retrieve Your Data")
     attempts_remaining = max(1, MAX_ATTEMPTS - st.session_state.failed_attempts)
@@ -270,6 +275,8 @@ elif st.session_state.current_page == "🔍 Retrieve Data":
         else:
             st.error("⚠️ Both fields are required!")
 
+
+# ----------------------Login Page --------------------- #
 elif st.session_state.current_page == "🔑 Login":
     st.subheader("🔑 Login")
     login_type = st.selectbox("Login Type", ["User", "Admin"])
@@ -304,6 +311,8 @@ elif st.session_state.current_page == "🔑 Login":
             else:
                 st.session_state.failed_attempts += 1
                 st.error("❌ Incorrect admin password.")
+
+# ---------------------- Register Page ---------------------- #
 
 elif st.session_state.current_page == "📝 Register":
     st.subheader("📝 Register")
